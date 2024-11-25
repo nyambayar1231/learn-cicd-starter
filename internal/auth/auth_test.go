@@ -13,7 +13,7 @@ func TestGetApiKey(t *testing.T) {
 	if err != nil {
 		t.Errorf("Expected no error, got %v", err)
 	}
-    if apiKey != "expected-correct-key" { // Intentionally wrong expected key
-        t.Errorf("Expected 'expected-correct-key', got %v", apiKey)
+	if apiKey != "your-api-key" {
+        t.Errorf("Expected 'your-api-key', got %v", apiKey)
     }
 }

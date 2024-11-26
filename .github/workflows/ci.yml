@@ -39,3 +39,6 @@ jobs:
 
       - name: Format code
         run: test -z $(go fmt ./...)
+
+      - name: Run Linter
+        run: staticcheck ./...

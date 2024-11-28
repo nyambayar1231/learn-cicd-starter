@@ -28,7 +28,11 @@ jobs:
           credentials_json: ${{ secrets.GCP_CREDENTIALS }}
 
       - name: Set up Cloud SDK
+<<<<<<< HEAD
         run: google-github-actions/setup-gcloud@v2
+=======
+        uses: google-github-actions/setup-gcloud@v2
+>>>>>>> eea4a8f (Fixing deploy yml)
 
       - name: Use gcloud CLI
         run: gcloud info

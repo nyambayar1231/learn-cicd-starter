@@ -24,20 +24,7 @@ jobs:
       - id: auth
         uses: google-github-actions/auth@v2
         with:
-          credentials_json: 
-            "type": "service_account",
-            "project_id": "notely-443103",
-            "private_key_id": "e77b313e541e655cb8743cec2a625d35e22d2052",
-            "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCzaZDR+pmajWkM\nxtSGbIdA+Yb0eiMgZj6TwkXh4/EN2mArJEiSKt2I/4S6Z/+yl5r/unGMWcJP8rxQ\nR7mGTQUUe16H8lWqXM5+nJSM79ZrLzyEZmleNhLVxTXkF0/lrOZ/AL9K66RyAk01\n69sBbm2UonyiS9hukdFCb0joD5NdVLRO7hdPNBtB1QeakBJ1XsFz1n4os7lWraDc\nKgZB3Vk3GMMCfmv1byeXYhkbVpXLYBpwQYPifpASJVEz5X7j8X79chv7HShy3dV8\njRqLDywEQzzNR7BlrR0l4QHPx5POWP2iuWjGn2DmlGyCt3CycgLLpHk+PsDD9u7H\nKEL1toJnAgMBAAECggEAANP/aaC0/cwiTH9MctRkaW3dbBp2OAuQxWDTrr+9GJnF\n8N0Jgrc075FyXOPm/72IZx7GsGWnqnPN37b9CbwoRlhtbsY1FAS6pUX2v5HJ1RPS\nPTA100v/mUIARi2/XimGpNZti5x71VTiY1nT2HVYhyOa3Krp9FSy+RIHbZ7IyNj9\nwAMNm7ToH0XfiBuhPbRV6LhQRg0kTd+0UNTtW8oLuYHSF+JCr5uz1WRN9i4otLU9\nkiRIUnIyXeHXb8WLTPE0z7Bl/o/W70/DnyyuxNSQ/wrisS8MfDNlSgCH5WTFtCjL\n2ALHW+WIe/oMUJtM6vqzAbpW6amDOuM8T7E1lqg85QKBgQDxV6RIwvxgtCa3hKTz\nuoiH2qq7i0Mqiv9Ra0lrRx6WPCgVD0lx7NSvTzJE1JeX8MWUtoyM6o41gqahnYUV\nr4UyYmoBH9mu1eUVqL2ELJniqluUR0isJz/jdHqR4DGxmRQTs8deDqw10AqRCjzT\nemI9CuZY6XeKlGdA1Qpv8O+/OwKBgQC+TwuA5KQyksM2SkBMkbozoJlb5/vkrg3H\nlQ/WCTZ/p/ddYVjicuf0Lq545A1ecUl3cDRcVCrn0pkS7fukdLwO6meUVNhsXi2y\nwwz9mq76+mAOBLwEdLCDZ+0VBkrnxEppdj8p4e6dU93Qwtqlce7HgdMqD96TXHF3\n2EmX5FduxQKBgFRYRNoJCxrg2wcYHG3xqvWPvkt9CCQ+H6zcyfPsDwyCSZ/Sj+B4\n3HvIOdFEWxaG1wZ6JfS5pKme141z96b0iKBrNJDgCLvJlR5UsqcWz1EgKJFRuFwx\n+2oKsyt4JuXikdmw4uRETHsiEg9OfKOMCfk7bfV04opUAyHtUpB8q80xAoGAR8bs\nYcramzB7bCiJI9f60KoL7XwLp252SAZSmLmU0oT5aUDkE1SfY5uPtozc9ffoa6Ho\nPcKJBDKMBXW46YgVvdJvCqUNk6HZvoiOh8Alqwdv3xmuCEgyov05kCp1agDAyBIP\nNK7AHpqZGLnFWY0lMB4pFL4zhoThTwBGkYFP8LkCgYA5NrhMjOGoOsLjtmFwE4h2\nVcQVL+ktQq883IOqUmU5kErxJ7cMYWNzhqC6UHdy4FFGxBcdyE1rQoWhrjvWU//O\ntpvlBa0WfvIurC/gVx0irNTBOlk1/CbdvjWPOLEhn+UDCX7JhiKsYQG4gnzgRDVh\nIKx3WHjwm8J7+ZlQ/upJxQ==\n-----END PRIVATE KEY-----\n",
-            "client_email": "cloud-run-deployer@notely-443103.iam.gserviceaccount.com",
-            "client_id": "105442908045164379226",
-            "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-            "token_uri": "https://oauth2.googleapis.com/token",
-            "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-            "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/cloud-run-deployer%40notely-443103.iam.gserviceaccount.com",
-            "universe_domain": "googleapis.com"
-          
-          
+          credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
 
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v2
@@ -45,5 +32,5 @@ jobs:
       - name: Use gcloud CLI
         run: gcloud info
 
-      - name: Build and Push Docker llr
+      - name: Build and Push Docker sda
         run: gcloud builds submit --tag asia-northeast1-docker.pkg.dev/notely-443103/notely-ar-repo/notely .
